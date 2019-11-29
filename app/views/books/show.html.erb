@@ -1,0 +1,31 @@
+<% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+<h1>User info</h1>
+			<%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %> 
+			<h2>name</h2>
+			<%= @book.user.name %>
+			<h2>introduction</h2>
+			<%= @book.user.introduction %>
+			<%= link_to"編集",edit_user_path(@book.user.id) %>
+
+			<%= render "home/list",book: @book_new %>
+
+
+
+<%=attachment_image_tag @book.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %>
+	<%=link_to @book.user.name,user_path(@book.user.id) %>
+	<%= @book.user.introduction %>
+<%=link_to"#{@book.title}",book_path(@book.id) %>
+<%= @book.body %>
+<% if current_user.id == @book.user.id %>
+<%= link_to "Edit", edit_book_path(@book.id) %>
+<%= link_to "Destroy",book_path(@book.id),method: :delete %>
+<% end %>
+
+
+ 
+
+

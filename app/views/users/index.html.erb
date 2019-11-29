@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<h1>User info</h1>
+			<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %> 
+			<h2>name</h2>
+			<%= @user.name %>
+			<h2>introduction</h2>
+			<%= @user.introduction %>
+			<%= link_to"編集",edit_user_path(@user.id) %>
+
+			<%= render "home/list",book: @book %>
+<div class="col-xs-9">
+<table border>
+	<tr>
+		<th>image</th>
+		<th>name</th>
+	</tr>
+<% @users.each do |user| %>
+    <tr>
+    	<th><%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %> </th>
+    	<th><%=  user.name %></th>
+    	<th><%=link_to "show",user_path(user.id) %></th>
+    </tr>
+	<% end %>
+	</table>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+

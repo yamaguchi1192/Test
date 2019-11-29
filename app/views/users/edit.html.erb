@@ -1,0 +1,33 @@
+<% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+
+<% if @user.errors.any? %>
+      <p><%= @user.errors.count %>errors prohibited this obj from being saved</p>
+      <% @user.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+<% end %>
+
+
+<%= form_for(@user) do |f|%>
+<h1>name</h1>
+<%= f.text_field :name, autofocus: true, class:"form-control", placeholder:"名前"%>
+<h1>Image</h1>
+<%= f.attachment_field :profile_image %>
+        <span class="fa fa-user form-control-icon" aria-hidden="true">
+        	<h1>Introduction</h1>
+<%= f.text_field :introduction, autofocus: true, class:"form-control", placeholder:"Introduction"%>
+
+<%= f.submit '投稿' %>
+<% end %>
+
+
+
+
+
+
+
