@@ -8,7 +8,7 @@
     
 <div class="container">
 	<div class="row">
-		<div class="col-xs-3">
+		<div class="col-md-1">
 
 
 			<h1>User info</h1>
@@ -24,7 +24,7 @@
 
 		</div>
 
-		<div class="col-xs-9">
+		<div class="col-md-11">
 			<table border>
 				<tr>
 					<th></th>
@@ -34,7 +34,9 @@
 				</tr>
 
 
-			    <% @books.each do |book| %>
+
+				<h1>Books</h1>
+                <% @books.each do |book| %>
 
 					<tr>
 						<td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %> </td>
